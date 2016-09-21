@@ -1,16 +1,15 @@
 class ApartmentsController < ApplicationController #inherits from application_controller.rb
 	def show #this literally only works if you have an html file called show in a folder called apartments
 				
-		@apartment = Apartment.find(params[:id] )
+		#you can do things like this in rails without explicitly iterating. this one line is equivalent to creating an array and doing a for loop and only then extracting data out of that individual apartment
+		@apartment = Apartment.find(params[:id] ) 
 
 		#why does simply writing Apartment.address with no instance variable naming not work? - cuz which apartment are you asking about
-		#how am I not just overwriting the apartment data here so that i only ever see my last db entry's info?
 		@address = @apartment.address
 		@price = @apartment.price
 		@VT_Link = @apartment.VT_Link
 
-		
-		
+				
 		
 		#current working code to get mass spit out of database on page
 			#@apartments = Apartment.all
