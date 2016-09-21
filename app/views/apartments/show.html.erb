@@ -1,0 +1,15 @@
+<%= @apartments.each do |apartments| %>
+
+<%= apartments.address %>, <%= apartments.price %>
+
+<a href= "<%=apartments.VT_Link %>" > 360 Tour Link </a>
+
+<% end -%>
+
+<!--the below only works(producing 2 embedded VTs) if the full iframe is also inserted. not sure why. -->
+<!---
+<iframe width='640' height='360' src=#{@apartment.VT_Link} frameborder='0'  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+<iframe width='640' height='360' src='https://roundme.com/embed/77128/193798' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+-->
