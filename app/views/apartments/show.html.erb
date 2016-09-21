@@ -1,10 +1,8 @@
-<%= @apartments.each do |apartments| %>
 
-<%= apartments.address %>, <%= apartments.price %>
 
-<a href= "<%=apartments.VT_Link %>" > 360 Tour Link </a>
+<%= @address %>, <%= @price %>
 
-<% end -%>
+<a href= "<%=@VT_Link %>" > 360 Tour Link </a>
 
 <!--the below only works(producing 2 embedded VTs) if the full iframe is also inserted. not sure why. -->
 <!---
