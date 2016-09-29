@@ -1,4 +1,4 @@
-class ApartmentsController < ApplicationController #inherits from application_controller.rb
+class ApartmentController < ApplicationController #inherits from application_controller.rb
 	def show #this literally only works if you have an html file called show in a folder called apartments
 				
 		#you can do things like this in rails without explicitly iterating. this one line is equivalent to creating an array 
@@ -23,10 +23,11 @@ class ApartmentsController < ApplicationController #inherits from application_co
   		
   	end
 
-
-	def showall
-	
-
+	#for my listings page of all listings
+	def index
+		@apartments = Apartment.all
 	end
+
+
 
 end
