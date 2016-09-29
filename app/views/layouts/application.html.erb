@@ -8,7 +8,26 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+<body>
+
+<!---to input the navigation bar links -->
+	<header class="navbar navbar-fixed-top navbar-inverse">
+  		<div class="container">
+    		<nav>
+      			<ul class="nav navbar-nav navbar-right">
+        		<li><%= link_to "Home",   root_path %></li>
+        		<li><%= link_to "apartments",   '#' %>  </li> <!--this doesn't really make snse to do but i was just testing out the capability -->
+
+            <!-- OLD CODE (works on an apartment page but generates error on homepage since there's no instance of apartment there): <li><%= link_to "apartments",   'apartment_path(@apartment)' %>  </li>    this doesn't really make snse to do but i was just testing out the capability   -->
+
+      			</ul>
+    		</nav>
+  		</div>
+	</header>
+
+    <div class="BelowNavbar">
+      <%= yield %>
+    </div>
+    
   </body>
 </html>
