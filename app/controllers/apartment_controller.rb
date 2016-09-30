@@ -9,19 +9,19 @@ class ApartmentController < ApplicationController #inherits from application_con
 		@address = @apartment.address
 		@price = @apartment.price
 		@VT_Link = @apartment.VT_Link
-		@firstImage = ApartmentImage.first
-		@showImage = @firstImage.image
+		
+		
+		#dynamically pulls in that apartment's image but only either the first or last one depending on whether you use .first or .last
+		@ApartmentImages = ApartmentImage.where(apartment_id: @apartment.id)
+		@showfirstAptImage = @ApartmentImages.first.image
+	
+
+		#this works to get first image out of db but not unique to any apt
+		#@firstImage = ApartmentImage.first
+		#@showImage = @firstImage.image
 		
 
-		#@images = @apartment.ApartmentImage.image.first
-
-		#@images = @apartment.apartment_image.image.first
 		
-		#current working code to get mass spit out of database on page
-			#@apartments = Apartment.all
-
-		#prior working code in def show method
-			#@apartment = Apartment.find(params[:id])
 		
 		##worked to get only second record showing (seems to be overwriting original)
 			#Apartment.all.each do |x|
