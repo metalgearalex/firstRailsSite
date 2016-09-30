@@ -8,7 +8,14 @@ class ApartmentController < ApplicationController #inherits from application_con
 		#why does simply writing Apartment.address with no instance variable naming not work? - cuz which apartment are you asking about
 		@address = @apartment.address
 		@price = @apartment.price
-		@VT_Link = @apartment.VT_Link				
+		@VT_Link = @apartment.VT_Link
+		@firstImage = ApartmentImage.first
+		@showImage = @firstImage.image
+		
+
+		#@images = @apartment.ApartmentImage.image.first
+
+		#@images = @apartment.apartment_image.image.first
 		
 		#current working code to get mass spit out of database on page
 			#@apartments = Apartment.all
@@ -26,6 +33,8 @@ class ApartmentController < ApplicationController #inherits from application_con
 	#for my listings page of all listings
 	def index
 		@apartments = Apartment.all
+		
+		
 	end
 
 
