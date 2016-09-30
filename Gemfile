@@ -1,4 +1,4 @@
-#Used the final gemfile from the ebook. See here: https://www.railstutorial.org/book/user_microposts#code-final_gemfile
+#Mostly used the final gemfile from the ebook. See here: https://www.railstutorial.org/book/user_microposts#code-final_gemfile
 
 source 'https://rubygems.org'
 
@@ -19,6 +19,14 @@ gem 'jquery-rails',            '4.1.1'
 gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.4.1'
 gem 'coffee-script-source', '1.8.0' 
+gem 'better_errors', '~> 2.1', '>= 2.1.1' #George's recc
+
+
+#for Chrome Extension Rails Panel
+group :development do
+  gem 'meta_request'
+end
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
