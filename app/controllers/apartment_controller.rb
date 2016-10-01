@@ -10,10 +10,15 @@ class ApartmentController < ApplicationController #inherits from application_con
 		@price = @apartment.price
 		@VT_Link = @apartment.VT_Link
 		
+		#bring me all rows in the ApartmentImage table related to this specific apt id. 
+		#STILL NEED TO CALL .image to get that column of data  out
+		@ApartmentImages = ApartmentImage.where(apartment_id: @apartment.id) 
 		
+
+
 		#dynamically pulls in that apartment's image but only either the first or last one depending on whether you use .first or .last
-		@ApartmentImages = ApartmentImage.where(apartment_id: @apartment.id)
-		@showfirstAptImage = @ApartmentImages.first.image
+#		@ApartmentImages = ApartmentImage.where(apartment_id: @apartment.id) #bring me all images related to this specific apt id
+#		@showfirstAptImage = @ApartmentImages.first.image
 	
 
 		#this works to get first image out of db but not unique to any apt
