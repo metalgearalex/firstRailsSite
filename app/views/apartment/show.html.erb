@@ -4,13 +4,13 @@
 <a href= "<%=@VT_Link %>" > 360 Tour Link </a>
 
 
-
 <!-- for the bootstrap carousel. couldn't find original source of code so used this: https://bootstrapbay.com/blog/bootstrap-3-carousel-tutorial/ 
 also see this: http://getbootstrap.com/javascript/#carousel-events
 
 -->
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" > <!--data ride is what actually makes it slide -->
+  <!-- Indicators, i.e. the bubble buttons on the bottom of the image -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -21,36 +21,32 @@ also see this: http://getbootstrap.com/javascript/#carousel-events
 <!--@ApartmentImages brings me all rows in the ApartmentImage table related to this specific apt id. 
   STILL NEED TO CALL .image to get that column of data  out -->
 
+<% @ApartmentImages.each do |photoURL| %>  <!-- each of the rows in the ApartmentImage table related to this specific apt id -->
 
-
-<%	@ApartmentImages.each do |photoURL| %>  <!-- each of the rows in the ApartmentImage table related to this specific apt id -->
-
-<% if photoURL.id == @ApartmentImages.first.id %> 
+<% if photoURL.id == @ApartmentImages.first.id %> <!-- problem isn't here since replacing img src's manually works -->
 
   <div class="carousel-inner">
-    <div class="item active">
-      <img src="<%= photoURL.image %>" alt="...">
-      <div class="carousel-caption">
-      	
+      <div class="item active">
+        <img src="<%=photoURL.image%>" alt="...">
+        <div class="carousel-caption">
+          
+        </div>
       </div>
-    </div>
 
 
 <% else %>
 
-	<div class="item">
-      <img src="photoURL.image" alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
+  	<div class="item">
+        <img src="<%=photoURL.image%>" alt="...">
+        <div class="carousel-caption">
+          ...
+        </div>
     </div>
+   
+  </div> <!---end of carousel-inner class -->
 
-  <% end %>  <!--end of if else -->
-  
+  <% end %>  <!--end of if else -->  
   <% end %>  <!--end of each loop -->
-    
-
-  </div>
  
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -59,15 +55,13 @@ also see this: http://getbootstrap.com/javascript/#carousel-events
   <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
-</div> <!-- Carousel -->
+</div> 
 
-
-
-
-
-</div>
+<!-- Carousel -->
 
 
 <!--loading jquery and bootstrap javascript for the image carousel. done on bottom for performance reasons -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
+</div>
