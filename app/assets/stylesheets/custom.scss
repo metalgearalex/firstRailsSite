@@ -1,10 +1,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+$Roomloo-Purple: #8479c9; //this is the syntax for defining sass variables
+
+
 .belowNavbar {
 	margin-top: 50px;
-}
+	padding: 5px;
+		}
 
 .carousel.slide {
 	width: 350px;
+}
+
+.aptInfoBox {
+	border: solid;
+	border-width:1px;
+	background-color:white;
+	width:350px;
+	color: $Roomloo-Purple;
 }

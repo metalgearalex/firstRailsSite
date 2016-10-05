@@ -1,9 +1,11 @@
 class ApartmentController < ApplicationController #inherits from application_controller.rb
+	
+	#show method is for an individual apartment page
 	def show #this literally only works if you have an html file called show in a folder called apartments
 				
 		#you can do things like this in rails without explicitly iterating. this one line is equivalent to creating an array 
 		#and doing a for loop and only then extracting data out of that individual apartment
-		@apartment = Apartment.find(params[:id] ) 
+		@apartment = Apartment.find(params[:id] ) #id is essentially provided when you type in the URL i.e. apartment/1. its get /apartment/:id
 
 		#why does simply writing Apartment.address with no instance variable naming not work? - cuz which apartment are you asking about
 		@address = @apartment.address
@@ -39,7 +41,12 @@ class ApartmentController < ApplicationController #inherits from application_con
 	def index
 		@apartments = Apartment.all
 		
+		@apartments.each do |apartment|
 		
+			@specificApartmentId = apartment.id
+
+			@ApartmentImagesForListings = ApartmentImage.where(apartment_id: @specificApartmentId) 
+		end
 	end
 
 

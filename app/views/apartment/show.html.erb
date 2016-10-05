@@ -1,7 +1,10 @@
 <div class="belowNavbar">
-	<%= @address %>, <%= @price %>
+<div class="aptInfoBox">
+	<div class = "col-md-4"> <strong> <%= @address %>  </strong> </div>
+  <div class = "col-md-4"> <strong> <%= @price %> </strong> </div>
+  <div class = "col-md-4"><a href= "<%=@VT_Link %>" > <strong> 360 Tour Link </strong> </a> </div>
+</div>
 
-<a href= "<%=@VT_Link %>" > 360 Tour Link </a>
 
 
 <!-- for the bootstrap carousel. couldn't find original source of code so used this: https://bootstrapbay.com/blog/bootstrap-3-carousel-tutorial/ 

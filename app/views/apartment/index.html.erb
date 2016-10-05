@@ -1,12 +1,93 @@
 <div class="belowNavbar">
-	
-	<% @apartments.each do |apartment| %>
-		 
-		 <p> <%= apartment.price %> </p> 
-		 <p> <%= apartment.address %>  </p> 
-		 <p> <%= apartment.VT_Link %>  </p>
 
-	<% end %>
+<div class="aptInfoBox">
+	<div class = "col-md-4"> <strong> <%= @address %>  </strong> </div>
+  <div class = "col-md-4"> <strong> <%= @price %> </strong> </div>
+  <div class = "col-md-4"><a href= "<%=@VT_Link %>" > <strong> 360 Tour Link </strong> </a> </div>
 </div>
 
 
+
+<!-- for the bootstrap carousel. couldn't find original source of code so used this: https://bootstrapbay.com/blog/bootstrap-3-carousel-tutorial/ 
+also see this: http://getbootstrap.com/javascript/#carousel-events
+
+-->
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" > <!--data ride is what actually makes it slide -->
+  <!-- Indicators, i.e. the bubble buttons on the bottom of the image -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  </ol>
+ 
+  <!-- Wrapper for slides -->
+
+
+
+<!-- PSUEDO CODE
+bring me each apartment
+for each apt, show me its corresponding photos
+one at a time -->
+
+
+<!-- @apartments = Apartment.all -->
+
+<% @apartments.each do |apartment| %>  <!-- basically for each apartment -->
+		 
+ <!--.ApartmentImage is an undefined method here: % apartment.ApartmentImage.image.each do |photoURL| % -->
+
+<!--@ApartmentImages brings me all rows in the ApartmentImage table related to this specific apt id. 
+  STILL NEED TO CALL .image to get that column of data  out -->		 
+<!-- @ApartmentImages = ApartmentImage.where(apartment_id: @apartment.id) -->
+
+
+<% @ApartmentImagesForListings.each do |photoURL| %>  <!-- each of the rows in the ApartmentImage table related to this specific apt id -->
+
+<% if photoURL.id == @ApartmentImagesForListings.first.id %> 
+
+  <div class="carousel-inner">
+      <div class="item active">
+        <img src="<%=photoURL.image%>" alt="...">
+        <div class="carousel-caption">
+          
+        </div>
+      </div>
+
+
+<% else %>
+
+  	<div class="item">
+        <img src="<%=photoURL.image%>" alt="...">
+        <div class="carousel-caption">
+          ...
+        </div>
+    </div>
+   
+  </div> <!---end of carousel-inner class -->
+
+  <% end %>  <!--end of if else -->  
+  <% end %>  <!--end of ApartmentImages each loop -->
+  <% end %>  <!--end of apartments each loop -->
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div> 
+
+<!-- Carousel -->
+
+
+
+ 
+
+<!--loading jquery and bootstrap javascript for the image carousel. done on bottom for performance reasons -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+	
+
+</div>
