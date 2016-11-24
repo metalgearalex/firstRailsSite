@@ -1,9 +1,13 @@
+<!-- @apartments = Apartment.all -->
+
+<% @apartments.each do |apartment| %>  <!-- basically for each apartment -->
+
 <div class="belowNavbar">
 
 <div class="aptInfoBox">
 	<div class = "col-md-4"> <strong> <%= @address %>  </strong> </div>
   <div class = "col-md-4"> <strong> <%= @price %> </strong> </div>
-  <div class = "col-md-4"><a href= "<%=@VT_Link %>" > <strong> 360 Tour Link </strong> </a> </div>
+  <div class = "col-md-4"><a href= "<%= @specificVtLink %>" > <strong> 360 Tour Link </strong> </a> </div>
 </div>
 
 
@@ -13,11 +17,11 @@ also see this: http://getbootstrap.com/javascript/#carousel-events
 
 -->
 
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" > <!--data ride is what actually makes it slide -->
+<div id= "<% @specificApartmentId %>"" class="carousel slide" data-ride="carousel" > <!--data ride is what actually makes it slide -->
   <!-- Indicators, i.e. the bubble buttons on the bottom of the image -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-1" data-slide-to="1"></li>
   </ol>
  
   <!-- Wrapper for slides -->
@@ -30,9 +34,7 @@ for each apt, show me its corresponding photos
 one at a time -->
 
 
-<!-- @apartments = Apartment.all -->
 
-<% @apartments.each do |apartment| %>  <!-- basically for each apartment -->
 		 
  <!--.ApartmentImage is an undefined method here: % apartment.ApartmentImage.image.each do |photoURL| % -->
 
@@ -67,20 +69,20 @@ one at a time -->
 
   <% end %>  <!--end of if else -->  
   <% end %>  <!--end of ApartmentImages each loop -->
-  <% end %>  <!--end of apartments each loop -->
+  
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#specificApartmentId" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+  <a class="right carousel-control" href="#specificApartmentId" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div> 
 
 <!-- Carousel -->
 
-
+<% end %>  <!--end of apartments each loop -->
 
  
 
