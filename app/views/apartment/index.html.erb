@@ -1,6 +1,12 @@
 <!-- @apartments = Apartment.all -->
 
-<% @apartments.each do |apartment| %>  <!-- basically for each apartment -->
+<% @apartments.each do |apartment| %>
+    
+<% @specificApartmentId = apartment.id %>
+<% @specificVtLink = apartment.VT_Link %>
+
+<% @ApartmentImagesForListings = ApartmentImage.where(apartment_id: @specificApartmentId) %>
+
 
 <div class="belowNavbar">
 
@@ -19,7 +25,7 @@ also see this: http://getbootstrap.com/javascript/#carousel-events
 
 
 
-<!--seemes the div id as specificApartmentId is working. inspecting it in the browser gets you an id of 2 which is correct for hte apt i'm seeing. the problem is both the top and bottom carousels have the same id. 
+<!--seemes the div id as specificApartmentId is working. inspecting it in the browser gets you an id of 2 which is correct for the apt i'm seeing. the problem is both the top and bottom carousels have the same id. 
 
       <div id= <%= @specificApartmentId %>  referring to this to the left
 
@@ -73,7 +79,7 @@ one at a time -->
         </div>
     </div>
    
-  </div> <!---end of carousel-inner class -->
+  </div> <!---end of carousel-inner class -->   <!--LOOK INTO PLACEMENT OF THIS MORE? MOVED IT AFTER END OF LOOP DIDN't CHANGE ANYTHING THO" -->
 
   <% end %>  <!--end of if else -->  
   <% end %>  <!--end of ApartmentImagesForListings each loop -->
