@@ -30,24 +30,15 @@ also see this: http://getbootstrap.com/javascript/#carousel-events
       <div id= <%= @specificApartmentId %>  referring to this to the left
 
 -->
-
+<!--the id for each carousel is technically #number so like #1 or #2-->
 <div id= <%= @specificApartmentId %> class="carousel slide" data-ride="carousel" > <!--data ride is what actually makes it slide -->
   <!-- Indicators, i.e. the bubble buttons on the bottom of the image -->
   <ol class="carousel-indicators">
-    <li data-target= "#specificApartmentId" data-slide-to="0" class="active"></li>
-    <li data-target="#specificApartmentId" data-slide-to="1"></li>
+    <li data-target= <%= "#" + @specificApartmentId.to_s %> data-slide-to="0" class="active"></li>
+    <li data-target= <%= "#" + @specificApartmentId.to_s %> data-slide-to="1"></li>
   </ol>
  
   <!-- Wrapper for slides -->
-
-
-
-<!-- PSUEDO CODE
-bring me each apartment
-for each apt, show me its corresponding photos
-one at a time -->
-
-
 
 		 
  <!--.ApartmentImage is an undefined method here: % apartment.ApartmentImage.image.each do |photoURL| % -->
@@ -84,12 +75,19 @@ one at a time -->
   <% end %>  <!--end of if else -->  
   <% end %>  <!--end of ApartmentImagesForListings each loop -->
   
+<!-- 
+tried (didn't work):
+  ["#", @specificApartmentId].join(" ")
+  "# #{@specificApartmentId}"
+-->
+
+<!--to_s converts integers into a string in ruby. i also tried the interpolation route but it didn't work for me -->
 
   <!-- Controls -->
-  <a class="left carousel-control" href= <%= @specificApartmentId %> role="button" data-slide="prev">
+  <a class="left carousel-control" href= <%= "#" + @specificApartmentId.to_s %> role="button" data-slide="prev"> 
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
-  <a class="right carousel-control" href= <%= @specificApartmentId %> role="button" data-slide="next">
+  <a class="right carousel-control" href= <%= "#" + @specificApartmentId.to_s %> role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div> 
