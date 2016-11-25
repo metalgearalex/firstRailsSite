@@ -34,7 +34,7 @@ also see this: http://getbootstrap.com/javascript/#carousel-events
 
 -->
 <!--the id for each carousel is technically #number so like #1 or #2-->
-<div id= <%= @specificApartmentId %> class="carousel slide" data-ride="carousel" > <!--data ride is what actually makes it slide -->
+<div id= <%= @specificApartmentId %> class="carousel slide" data-interval="false" data-ride="carousel" > <!--data ride is what actually makes it slide -->
   <!-- Indicators, i.e. the bubble buttons on the bottom of the image -->
   <ol class="carousel-indicators">
     <li data-target= <%= "#" + @specificApartmentId.to_s %> data-slide-to="0" class="active"></li>
