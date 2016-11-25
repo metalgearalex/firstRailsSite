@@ -41,13 +41,7 @@ class ApartmentController < ApplicationController #inherits from application_con
 	def index
 		@apartments = Apartment.all
 		
-		@apartments.each do |apartment|
 		
-			@specificApartmentId = apartment.id
-			@specificVtLink = apartment.VT_Link
-
-			@ApartmentImagesForListings = ApartmentImage.where(apartment_id: @specificApartmentId) 
-		end
 	end
 
 

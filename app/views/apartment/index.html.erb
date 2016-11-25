@@ -1,3 +1,9 @@
+<!--IF YOU MOVE belowNavbar below the apartment loop it changes things dramatically. -->
+<!--based on changing col width to 3 so it all fits on one row, this definitely seems like it should be above the loop-->
+<div class="belowNavbar"> <!-- should this be above the apartment for loop? otherwise each apartment is basically in a new belowNavbar class -->
+
+<!--column can't go before the loop because then there's never a second column -->
+
 <!-- @apartments = Apartment.all -->
 
 <% @apartments.each do |apartment| %>
@@ -11,12 +17,17 @@
 <% @price =  apartment.price %>
 
 
-<div class="belowNavbar">
+
+
+<!-- to try and get two apts per row -->
+
+<div class = "col-md-6">
+<!--ADDING A ROW HERE DOESN'T WORK -->
 
 <div class="aptInfoBox">
 	<div class = "col-md-4"> <strong> <%= @address %>  </strong> </div>
   <div class = "col-md-4"> <strong> <%= @price %> </strong> </div>
-  <div class = "col-md-4"><a href= "<%= @specificVtLink %>" > <strong> 360 </strong> </a> </div>
+  <div class = "col-md-4"><a href= "<%= @specificVtLink %>" > <strong> 360 Tour </strong> </a> </div>
 </div>
 
 
@@ -34,6 +45,7 @@ also see this: http://getbootstrap.com/javascript/#carousel-events
 
 -->
 <!--the id for each carousel is technically #number so like #1 or #2-->
+<!--data-interval is set to false because: If false, carousel will not automatically cycle. -->
 <div id= <%= @specificApartmentId %> class="carousel slide" data-interval="false" data-ride="carousel" > <!--data ride is what actually makes it slide -->
   <!-- Indicators, i.e. the bubble buttons on the bottom of the image -->
   <ol class="carousel-indicators">
@@ -96,6 +108,8 @@ tried (didn't work):
 </div> 
 
 <!-- Carousel -->
+ </div>    <!-- col mid 6 -->    
+
 
 <% end %>  <!--end of apartments each loop -->
 
@@ -107,4 +121,4 @@ tried (didn't work):
 
 	
 
-</div>
+</div> <!--div belowNavbar-->
