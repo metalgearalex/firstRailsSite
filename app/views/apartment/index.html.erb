@@ -7,13 +7,16 @@
 
 <% @ApartmentImagesForListings = ApartmentImage.where(apartment_id: @specificApartmentId) %>
 
+<% @address = apartment.address %>
+<% @price =  apartment.price %>
+
 
 <div class="belowNavbar">
 
 <div class="aptInfoBox">
 	<div class = "col-md-4"> <strong> <%= @address %>  </strong> </div>
   <div class = "col-md-4"> <strong> <%= @price %> </strong> </div>
-  <div class = "col-md-4"><a href= "<%= @specificVtLink %>" > <strong> 360 Tour Link </strong> </a> </div>
+  <div class = "col-md-4"><a href= "<%= @specificVtLink %>" > <strong> 360 </strong> </a> </div>
 </div>
 
 
