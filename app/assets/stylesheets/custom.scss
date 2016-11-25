@@ -22,6 +22,7 @@ $Roomloo-Purple: #8479c9; //this is the syntax for defining sass variables
 	color: $Roomloo-Purple;
 }
 
-.TwoColumns {
-	width: 100%;
-	}
+//to add some space between apartment rows on the listings page
+.col-md-6 {
+	margin-top: 50px;
+}
