@@ -114,6 +114,43 @@ tried (didn't work):
 <% end %>  <!--end of apartments each loop -->
 
  
+<!--pagination -->
+    <% apartmentsPerPage = 2 %>
+    <% numberOfPages = ( (@apartments.length)/apartmentsPerPage ).ceil %> <!-- .ceil returns the smallest Integer greater than or equal to float. -->
+
+    <% counter = 1 %>
+
+    
+
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span> <!-- &laquo is some sort of html shortcut/thing for left arrow -->
+          </a>
+        </li>
+
+        <% for num in counter..numberOfPages %>
+        <li><a href="#"> <%=num %> </a></li> 
+        <% end %> <!-- end of for loop -->
+               
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span> <!-- &raquo is some sort of html shortcut/thing for left arrow -->
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+
+
+
+
+
+
+
+
 
 <!--loading jquery and bootstrap javascript for the image carousel. done on bottom for performance reasons -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

@@ -41,7 +41,14 @@ class ApartmentController < ApplicationController #inherits from application_con
 	def index
 		@apartments = Apartment.all
 		
-		
+		apartmentsPerPage = 2
+		numberOfPages = ( (@apartments.length)/apartmentsPerPage ).ceil #.ceil returns the smallest Integer greater than or equal to float.
+
+		counter = 1
+		for num in counter..numberOfPages
+		puts num
+		end #end of for loop 
+
 	end
 
 

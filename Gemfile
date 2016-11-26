@@ -20,6 +20,7 @@ gem 'turbolinks',              '5.0.1'
 gem 'jbuilder',                '2.4.1'
 gem 'coffee-script-source', '1.8.0' 
 gem 'better_errors', '~> 2.1', '>= 2.1.1' #George's recc
+gem 'binding_of_caller' #recommendation from better_errors? from browser
 
 
 #for Chrome Extension Rails Panel
